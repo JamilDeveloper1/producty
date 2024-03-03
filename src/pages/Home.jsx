@@ -19,23 +19,27 @@ function Home() {
 
   const filteredData = data.filter(item => item.name.toLocaleLowerCase().includes(keyword.toLocaleLowerCase()));
 
+  useEffect(() => {
+    if(data.length ===  0){
+      return(
+        <div className='flex flex-col-reverse md:flex-row items-center justify-around pt-20 '>
+       <div className='flex flex-col md:w-1/2 gap-5'>
+       <h1 className='text-xl sm:text-2xl md:text-3xl font-bold'>Create and sell with <span className='text-[#A79BFD]'>Producty</span></h1>
+          <p className='text-sm md:text-xl w-4/5'>
+            If you are interested in for to create your own product you are in the right place.
+          </p>
+          <button onClick={()=>dispatch(handleClick())} className='p-2 border  md:w-1/2 rounded-lg bg-[#A79BFD] font-semibold text-[#242424] ' >Create Now</button>
+       </div>
+          <img id='bouncing-image' className=' w-4/5 md:w-[500px] ' src="background-img.png" alt="" />
+        
+        </div>
+      )
+    }
+  
 
-  if(data.length ===  0){
-    return(
-      <div className='flex flex-col-reverse md:flex-row items-center justify-around pt-20 '>
-     <div className='flex flex-col md:w-1/2 gap-5'>
-     <h1 className='text-xl sm:text-2xl md:text-3xl font-bold'>Create and sell with <span className='text-[#A79BFD]'>Producty</span></h1>
-        <p className='text-sm md:text-xl w-4/5'>
-          If you are interested in for to create your own product you are in the right place.
-        </p>
-        <button onClick={()=>dispatch(handleClick())} className='p-2 border  md:w-1/2 rounded-lg bg-[#A79BFD] font-semibold text-[#242424] ' >Create Now</button>
-     </div>
-    
-        <img id='bouncing-image' className=' w-4/5 md:w-[500px] ' src="background-img.png" alt="" />
-      </div>
-    )
-  }
+  },[])
 
+  
 
 
 
